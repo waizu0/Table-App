@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Search and Delete</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="button-group">
+            <button id="addBtn">Add</button>
+            <button id="editBtn" disabled>Edit</button>
+            <button id="deleteBtn">Delete</button>
+            <span style="flex-grow: 1;"></span>
+            <button id="importBtn">Import</button>
+            <button id="exportBtn">Export</button>
+            <input type="text" id="searchBox" placeholder="Search">
+            <button id="filterBtn">Filter</button>
+        </div>
+    <table id="responsiveTable">
+        
+    </table>
+    <div id="editModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your entries</h2>
+            <input type="text" id="editField1" placeholder="HEAD#1">
+            <input type="text" id="editField2" placeholder="HEAD#2">
+            <input type="text" id="editField3" placeholder="HEAD#3">
+            <input type="text" id="editField4" placeholder="HEAD#4">
+            <button id="saveEdit" class="action-button">Save</button>
+        </div>
+    </div>
+
+    <div id="importModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('importModal')">&times;</span>
+            <textarea id="importDataField" placeholder='[{"HEAD#1": "Data1", "HEAD#2": "Data2", "HEAD#3": "Data3", "HEAD#4": "Data4"}, ...]'></textarea>
+            <button class="action-button" onclick="importData()">Import</button>
+        </div>
+    </div>
+    
+    <div id="exportModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('exportModal')">&times;</span>
+            <textarea id="exportDataField" readonly></textarea>
+            <button class="action-button" onclick="downloadExportedData()">Download</button>
+        </div>
+    </div>
+    
+    <div class="pagination-info">
+    <select id="rowsPerPageSelect">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+    </select>
+    <span id="rowsDisplay"></span>
+    </div>
+
+    
+    <script src="main.js"></script>
+</body>
+</html>
